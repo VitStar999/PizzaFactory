@@ -3,11 +3,17 @@
 public class Main {
     public static void main(String[] args) {
 
-        Pizza pizza = new Pizza();
 
-        SiimplePizzaFactory factory = new SiimplePizzaFactory();
-        PizzaStore store = new PizzaStore(factory);
-        factory.createPizza("cheese");
+
+
+PizzaStore nyStore = new NYPizzaFactory();
+nyStore.orederPizza("cheese");
+
+PizzaStore chicagoStore = new ChicagoPizzaFactory();
+chicagoStore.orederPizza("cheese");
+
+
+
 
 
 

@@ -1,17 +1,18 @@
-public class PizzaStore {
+public abstract class PizzaStore extends Pizza {
 
-    // Классу PizzaStore передается ссылка на SiimplePizzaFactory
-    SiimplePizzaFactory factory;
 
-    // PizzaStore сохраняет ссылку в конструктор
-    public PizzaStore(SiimplePizzaFactory factory) {
-        this.factory = factory;
+    public Pizza orederPizza(String type) {
+        Pizza pizza ;
+        pizza = createPizza(type);
+
+
+        pizza.prepare();
+        pizza.bake();
+        pizza.cut();
+        pizza.box();
+
+        return pizza;
     }
-    public Pizza orderPizza(String type){
-        Pizza pizza;
-        // Метод order Pizza() обращается к фабрике с запросом на создание объектап ередавая заказ
-      // Вызов оператора new заменяется вызовом метода create объекта фабрики
-        pizza = factory.createPizza("cheese");
-        return  pizza;
-    }
+
+    abstract  Pizza createPizza(String type);
 }
